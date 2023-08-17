@@ -1,4 +1,4 @@
-# GTA5RP Admins binder [AHK]
+# FlutteringDream
 [![Build Status](https://gta5rp.com/images/logo.png)](https://gta5rp.com/)
 
 ## Как использовать [AHK вариант | EXE вариант]

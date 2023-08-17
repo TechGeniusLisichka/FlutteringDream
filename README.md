@@ -1,5 +1,4 @@
 # FlutteringDream
-[![Build Status](https://gta5rp.com/images/logo.png)](https://gta5rp.com/)
 
 ## Как использовать [AHK вариант | EXE вариант]
 0. Скачать [новую версию](https://github.com/J1isa/FlutteringDream/releases). 

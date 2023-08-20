@@ -248,7 +248,7 @@ return
 return
 
 ::nrd+::
-    SendInput,prison  20 6.2 правил проекта{left 18}
+    SendInput,prison  20 6.2 правил проекта{left 22}
 return
 
 ::nsp+::

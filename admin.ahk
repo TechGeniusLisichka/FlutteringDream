@@ -2,7 +2,6 @@
 #Include libraries/JSON.ahk
 #SingleInstance force
 #Include settings/triggers.ahk
-#Include settings/Trach.ahk
 #Include settings/bind.ahk
 #MaxHotkeysPerInterval 99000000
 #HotkeyInterval 99000000

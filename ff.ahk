@@ -57,7 +57,7 @@ try{
 		IfMsgBox, Yes
 		{	
 ;Загрузите последнюю версию вашего файла в репозиторий, получите ссылку RAW и вставьте ее ниже. Загрузка будет происходить автоматически при нажатии пользователем кнопки "Ok" в поле "Вы хотите загрузить?".			
-			Run, https://raw.githubusercontent.com/TechGeniusLisichka/FlutteringDream/admin.ahk
+			Run, https://raw.githubusercontent.com/TechGeniusLisichka/FlutteringDream/main/ff.ahk
 		}
 		IfMsgBox, No
 		{

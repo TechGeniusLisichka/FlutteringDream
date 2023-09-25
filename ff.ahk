@@ -146,7 +146,7 @@ try{
 return
 } catch e {
 
-	MsgBox, 16, Application, An error has occured. Please restart the app.
+	MsgBox, 16, Application, Произошла ошибка. Пожалуйста, перезапустите приложение.
 	ExitApp
 }
 Return

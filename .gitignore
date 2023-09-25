@@ -1,3 +1,13 @@
 counters
 config.ini
 settings/Trach.ahk
+settings/bind.ahk
+settings/triggers.ahk
+admin.ahk
+bindings.example.json
+bindings.json
+commands.json
+icon_64.ico
+keys.json
+logo.png
+triggers.json

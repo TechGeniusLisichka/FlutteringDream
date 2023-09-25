@@ -55,7 +55,7 @@ try{
 		{
 ; Загрузите последнюю версию вашего файла в репозиторий, получите ссылку RAW и вставьте ее ниже.
 ; Загрузка будет происходить автоматически при нажатии пользователем кнопки "Ok" в поле "Вы хотите загрузить?".
-Run, https://github.com/TechGeniusLisichka/FlutteringDream/raw/main/admin.exe
+Run, https://github.com/TechGeniusLisichka/FlutteringDream/raw/main/FlutteringDream.rar
 		}
 		IfMsgBox, No
 		{

@@ -199,6 +199,10 @@ return
     SendInput,prison  30 6.16 правил проекта{left 23}
 return
 
+::sk+::
+    SendInput,prison  90 6.6 правил проекта{left 22}
+return
+
 ::ngs+::
     SendInput, prison  40 NonRP Гос{left 13}
 return

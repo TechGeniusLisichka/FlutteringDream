@@ -15,7 +15,7 @@ Run *RunAs "%A_ScriptFullPath%"
 ExitApp
 }
 catch e {
-MsgBox, 48, Application, Пожалуйста, запустите программу от имени администратора!
+MsgBox, 48, Application, Please run as administrator!
 ExitApp
 }
 }
@@ -27,37 +27,38 @@ WinHttp.Open("GET", "https://worldtimeapi.org/api/timezone/Europe/Moscow.txt", f
 WinHttp.Send()
 WinHttp.WaitForResponse()
 Response := WinHttp.ResponseText
-}  
+}
 catch
 {
-MsgBox, 16, Application, Не удалось получить время. Пожалуйста, проверьте подключение к Интернету и повторите попытку. Нажимайте "Ok" до тех пор, пока приложение не запустится.
+	MsgBox, 16, Application, Не удалось получить время. Пожалуйста, проверьте подключение к Интернету и повторите попытку. Нажимайте "Ok" до тех пор, пока приложение не запустится.
 	Reload
-} 
+}
 Match := RegExMatch(Response, "([0-9]{4}).([0-9]{2}).([0-9]{2})", Replace)
 Finaldate := RegExReplace(Replace, "-")
 Date := Finaldate
-
-;получите RAW-ссылку на файл "version" в вашем репо. Он будет работать как наш автоматический апдейтер (когда %Fileversion% не будет равен версии, записанной в вашем github-файле, он предложит обновиться).FileVersion = 1
-
+;получите RAW-ссылку на файл "version" в вашем репо. Он будет работать как наш автоматический апдейтер
+;(когда %Fileversion% не будет равен версии, записанной в вашем github-файле, он предложит обновиться).FileVersion = 1
+FileVersion = 1
 try{
 	getver := ComObjCreate("WinHttp.WinHttpRequest.5.1")
 	getver.Open("GET", "https://raw.githubusercontent.com/TechGeniusLisichka/FlutteringDream/main/main/version")
+	getver.Send()
 	getver.WaitForResponse()
 	urlversion := Trim(getver.ResponseText, "`n")
 	If (FileVersion != urlversion)
 	{
-;Получите RAW-ссылку "patch" в вашем репо. Она будет использоваться как всплывающая ссылка на патч при каждом новом обновлении.
+		;Получите RAW-ссылку "patch" в вашем репо. Она будет использоваться как всплывающая ссылка на патч при каждом новом обновлении.
 		patch := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-
 		patch.Open("GET", "https://raw.githubusercontent.com/TechGeniusLisichka/FlutteringDream/main/main/patch")
 		patch.Send()
 		patch.WaitForResponse()
 		patchnotes := Trim(patch.ResponseText, "`n")
 		MsgBox, 8244, Application Update,  Доступна новая версия!`n`nОбновитесь сейчас?`n`nПатчноты: `n%patchnotes%`n`n`nТекущая версия: v%FileVersion% | Последняя версия: v%urlversion%
 		IfMsgBox, Yes
-		{	
-;Загрузите последнюю версию вашего файла в репозиторий, получите ссылку RAW и вставьте ее ниже. Загрузка будет происходить автоматически при нажатии пользователем кнопки "Ok" в поле "Вы хотите загрузить?".			
-			Run, https://raw.githubusercontent.com/TechGeniusLisichka/FlutteringDream/main/ff.ahk
+		{
+; Загрузите последнюю версию вашего файла в репозиторий, получите ссылку RAW и вставьте ее ниже.
+; Загрузка будет происходить автоматически при нажатии пользователем кнопки "Ok" в поле "Вы хотите загрузить?".
+Run, https://raw.githubusercontent.com/TechGeniusLisichka/FlutteringDream/main/ff.ahk
 		}
 		IfMsgBox, No
 		{
@@ -70,18 +71,18 @@ Else
 	goto, LicenseCheck
 }
 } catch e{
-	MsgBox, 16, Application, Произошла ошибка при получении текущей версии файла.`nАвтообновление может не работать до тех пор, пока эта проблема не будет решена.`nНажмите "Ok", чтобы проигнорировать это сообщение и продолжить работу со сценарием.
+	MsgBox, 16, Application, Произошла ошибка при получении текущей версии файла.`nОшибка: %message%`nАвтообновление может не работать до тех пор, пока эта проблема не будет решена.`nНажмите "Ok", чтобы проигнорировать это сообщение и продолжить работу со сценарием.
 	Sleep, 500
 	goto, LicenseCheck
 }
 Return
 ;------------start of scripts------------;
 RunApplication:
-MsgBox, Активировано!`n`nСрок действия:%expfinal% | Текущая дата:%currentdate%
-ExitApp,
+MsgBox, Срок действия%expfinal% | Текущая дата:%currentdate%
+ExitApp
 
 Expired:
-MsgBox, Срок действия%expfinal% | Текущая дата:%currentdate%
+MsgBox, Expiration:%expfinal% | Current Date:%currentdate%
 Clipboard := keyencrypted
 ExitApp
 
@@ -98,21 +99,17 @@ try{
    PCdata = %A_username%%A_is64bitos%%A_Language%%A_computername%%A_desktop%
    PCdata = %PCdata%%A_WinDir%%A_OSType%%A_Temp%
    keyencrypted1 := Crypt.Encrypt.StrEncrypt(PCdata,key,, 1)
-   keyencrypted := Crypt.Encrypt.StrEncrypt(keyencrypted1,key,, 1) 
-
-;%keyencrypted% <- это переменная, которую должен передать вам ваш пользователь, чтобы вы могли вставить его в файл "users" в вашем репо.
-;Вы можете скопировать ее в буфер обмена или вставить в gui, на ваше усмотрение
-
+   keyencrypted := Crypt.Encrypt.StrEncrypt(keyencrypted1,key,, 1)
+	;%keyencrypted% <- это переменная, которую должен передать вам ваш пользователь, чтобы вы могли вставить его в файл "users" в вашем репо.
+	;Вы можете скопировать ее в буфер обмена или вставить в gui, на ваше усмотрение
    getver := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-
-;получите RAW-ссылку на файл "users" в вашем репо. Он будет служить основной базой данных для лицензий пользователей и сроков их действия.
-;Формат для размещения лицензий будет таким: "Имя (необязательно, просто для справки) - лицензионный ключ, который вам дадут ГГГГ/ММ/ДД (дата истечения срока действия)".
-;Пример:
-;JollyJoe - 22jd1-20fawf9f29af09fuofhoa2ufhoau 2023/12/12
-;Вышеприведенное означает: Срок действия лицензии Jollyjoe истекает 12 декабря 2023 года (приложение будет автоматически деактивировано)
-
-   getver.Open("GET", "https://raw.githubusercontent.com/TechGeniusLisichka/FlutteringDream/main/main/users") ;примеры здесь
-   getver.Send()
+   ;получите RAW-ссылку на файл "users" в вашем репо. Он будет служить основной базой данных для лицензий пользователей и сроков их действия.
+	;Формат для размещения лицензий будет таким: "Имя (необязательно, просто для справки) - лицензионный ключ, который вам дадут ГГГГ/ММ/ДД (дата истечения срока действия)".
+	;Пример:
+	;JollyJoe - 22jd1-20fawf9f29af09fuofhoa2ufhoau 2023/12/12
+	;Вышеприведенное означает: Срок действия лицензии Jollyjoe истекает 12 декабря 2023 года (приложение будет автоматически деактивировано)
+	getver.Open("GET", "https://raw.githubusercontent.com/TechGeniusLisichka/FlutteringDream/main/main/users") ;примеры здесь
+	getver.Send()
    getver.WaitForResponse()
    dbkey := getver.ResponseText
    pos := InStr(dbkey, keyencrypted) ;проверяет, найден ли %keyencrypted% (1) или нет (0) в %dbkey%
@@ -132,14 +129,14 @@ try{
 		}
 		else if (expfinal = "") ;если срок действия истек
 	    {
-			Gosub, Expired	
+			Gosub, Expired
 	    }
 	}
-	Else if (pos = 0) ;если не зарегистрирован
+	Else if (pos = 0) ;если срок действия истек
 	{
 		Gosub, Notreg
 	}
-	Else if (pos = "") ;если зарегистрирован
+	Else if (pos = "") ;если срок действия истек
 	{
 		Gosub, Notreg
 	}
@@ -149,8 +146,6 @@ return
 	MsgBox, 16, Application, Произошла ошибка. Пожалуйста, перезапустите приложение.
 	ExitApp
 }
-Return
-
 Return
 
 ;------------------ functions------------------;
@@ -188,9 +183,9 @@ Parameters:
 	(необязательно) CryptAlg - идентификатор алгоритма шифрования, подробнее см. ниже
 	(необязательно) HashAlg - идентификатор алгоритма хэширования, подробнее см. ниже.
 Return:
-	при успехе - HASH-представление зашифрованного буфера, которое легко передается. 
+	при успехе - HASH-представление зашифрованного буфера, которое легко передается.
 				Получить реальный зашифрованный буфер из HASH можно с помощью функции HashToByte()
-	при неудаче - ""	
+	при неудаче - ""
 --------
 Crypt.Encrypt.StrDecrypt(EncryptedHash,password,CryptAlg = 1, HashAlg = 1)
 	Расшифровывает строку, параметры идентичны StrEncrypt, за исключением:
@@ -271,8 +266,8 @@ class Crypt
 	{
 		static StrEncoding := "UTF-16"
 		static PassEncoding := "UTF-16"
-		
-		StrDecryptToFile(EncryptedHash,pFileOut,password,CryptAlg = 1, HashAlg = 1) 
+
+		StrDecryptToFile(EncryptedHash,pFileOut,password,CryptAlg = 1, HashAlg = 1)
 		{
 			if !EncryptedHash
 				return ""
@@ -289,8 +284,8 @@ class Crypt
 			FileDelete,% temp_file
 			return bytes
 		}
-		
-		FileEncryptToStr(pFileIn,password,CryptAlg = 1, HashAlg = 1) 
+
+		FileEncryptToStr(pFileIn,password,CryptAlg = 1, HashAlg = 1)
 		{
 			temp_file := "crypt.temp"
 			if !this._Encrypt( p, pp, password, 1, pFileIn, temp_file, CryptAlg, HashAlg )
@@ -313,7 +308,7 @@ class Crypt
 			FileDelete,% temp_file
 			return b64Encode( tembBuf, fLen )
 		}
-		
+
 		FileEncrypt(pFileIn,pFileOut,password,CryptAlg = 1, HashAlg = 1)
 		{
 			return this._Encrypt( p, pp, password, 1, pFileIn, pFileOut, CryptAlg, HashAlg )
@@ -332,7 +327,7 @@ class Crypt
 			else
 				return ""
 		}
-	
+
 		StrDecrypt(EncryptedHash,password,CryptAlg = 1, HashAlg = 1)
 		{
 			if !EncryptedHash
@@ -347,8 +342,8 @@ class Crypt
 			}
 			else
 				return ""
-		}		
-	
+		}
+
 		_Encrypt(ByRef encr_Buf,ByRef Buf_Len, password, mode, pFileIn=0, pFileOut=0, CryptAlg = 1,HashAlg = 1)	;mode - 1 encrypt, 0 - decrypt
 		{
 			c := CryptConst
@@ -372,11 +367,11 @@ class Crypt
 			KEY_LENGHT <<= 16
 			if (CUR_PWD_HASH_ALG = 0 || CUR_ENC_ALG = 0)
 				return 0
-			
+
 			if !dllCall("Advapi32\CryptAcquireContextW","Ptr*",hCryptProv,"Uint",0,"Uint",0,"Uint",c.PROV_RSA_AES,"UInt",c.CRYPT_VERIFYCONTEXT)
 					{foo := "CryptAcquireContextW", err := GetLastError(), err2 := ErrorLevel
 					GoTO FINITA_LA_COMEDIA
-					}	
+					}
 			if !dllCall("Advapi32\CryptCreateHash","Ptr",hCryptProv,"Uint",CUR_PWD_HASH_ALG,"Uint",0,"Uint",0,"Ptr*",hHash )
 					{foo := "CryptCreateHash", err := GetLastError(), err2 := ErrorLevel
 					GoTO FINITA_LA_COMEDIA
@@ -386,7 +381,7 @@ class Crypt
 			if !dllCall("Advapi32\CryptHashData","Ptr",hHash,"Ptr",&passBuf,"Uint",passLen,"Uint",0 )
 					{foo := "CryptHashData", err := GetLastError(), err2 := ErrorLevel
 					GoTO FINITA_LA_COMEDIA
-					}	
+					}
 			;getting encryption key from password
 			if !dllCall("Advapi32\CryptDeriveKey","Ptr",hCryptProv,"Uint",CUR_ENC_ALG,"Ptr",hHash,"Uint",KEY_LENGHT,"Ptr*",hKey )
 					{foo := "CryptDeriveKey", err := GetLastError(), err2 := ErrorLevel
@@ -396,7 +391,7 @@ class Crypt
 			if !dllCall("Advapi32\CryptGetKeyParam","Ptr",hKey,"Uint",c.KP_BLOCKLEN,"Uint*",BlockLen,"Uint*",dwCount := 4,"Uint",0)
 					{foo := "CryptGetKeyParam", err := GetLastError(), err2 := ErrorLevel
 					GoTO FINITA_LA_COMEDIA
-					}	
+					}
 			BlockLen /= 8
 			if (mode == 1)							;Encrypting
 			{
@@ -430,10 +425,10 @@ class Crypt
 								,"Uint",0	;dwFlags
 								,"Ptr",&ReadBuf	;pbdata
 								,"Uint*",BytesRead	;dwsize
-								,"Uint",ReadBufSize+BlockLen )	;dwbuf		
+								,"Uint",ReadBufSize+BlockLen )	;dwbuf
 						{foo := "CryptEncrypt", err := GetLastError(), err2 := ErrorLevel
 						GoTO FINITA_LA_COMEDIA
-						}	
+						}
 						pfout.RawWrite(ReadBuf,BytesRead)
 						Buf_Len += BytesRead
 					}
@@ -450,14 +445,14 @@ class Crypt
 								,"Uint",0	;dwFlags
 								,"Ptr",&encr_Buf	;pbdata
 								,"Uint*",Buf_Len	;dwsize
-								,"Uint",Buf_Len + BlockLen )	;dwbuf		
+								,"Uint",Buf_Len + BlockLen )	;dwbuf
 					{foo := "CryptEncrypt", err := GetLastError(), err2 := ErrorLevel
 					GoTO FINITA_LA_COMEDIA
-					}	
+					}
 				}
 			}
 			else if (mode == 0)								;decrypting
-			{	
+			{
 				if (pFileIn && pFileOut)					;decrypting file
 				{
 					ReadBufSize := 10240 - mod(10240,BlockLen==0?1:BlockLen )	;10KB
@@ -490,14 +485,14 @@ class Crypt
 								,"Uint*",BytesRead )	;dwsize
 						{foo := "CryptDecrypt", err := GetLastError(), err2 := ErrorLevel
 						GoTO FINITA_LA_COMEDIA
-						}	
+						}
 						pfout.RawWrite(ReadBuf,BytesRead)
 						Buf_Len += BytesRead
 					}
 					DllCall("FreeLibrary", "Ptr", hModule)
 					pfin.Close()
 					pfout.Close()
-					
+
 				}
 				else if !dllCall("Advapi32\CryptDecrypt"
 								,"Ptr",hKey	;key
@@ -508,7 +503,7 @@ class Crypt
 								,"Uint*",Buf_Len )	;dwsize
 					{foo := "CryptDecrypt", err := GetLastError(), err2 := ErrorLevel
 					GoTO FINITA_LA_COMEDIA
-					}	
+					}
 			}
 FINITA_LA_COMEDIA:
 			dllCall("Advapi32\CryptDestroyKey","Ptr",hKey )
@@ -519,29 +514,29 @@ FINITA_LA_COMEDIA:
 				if (A_IsCompiled = 1)
 					return ""
 				else
-					msgbox % foo " call failed with:`nErrorLevel: " err2 "`nLastError: " err "`n" ErrorFormat(err) 
+					msgbox % foo " call failed with:`nErrorLevel: " err2 "`nLastError: " err "`n" ErrorFormat(err)
 				return ""
 			}
 			return Buf_Len
 		}
 	}
-	
+
 	class Hash
 	{
 		static StrEncoding := "CP0"
 		static PassEncoding := "UTF-16"
-		
+
 		FileHash(pFile,HashAlg = 1,pwd = "",hmac_alg = 1)
 		{
 			return this._CalcHash(p,pp,pFile,HashAlg,pwd,hmac_alg)
 		}
-		
+
 		StrHash(string,HashAlg = 1,pwd = "",hmac_alg = 1)		;strType 1 for ASC, 0 for UTF
 		{
 			buf_len := StrPutVar(string, buf,0,this.StrEncoding)
 			return this._CalcHash(buf,buf_len,0,HashAlg,pwd,hmac_alg)
 		}
-		
+
 		_CalcHash(ByRef bBuffer,BufferLen,pFile,HashAlg = 1,pwd = "",hmac_alg = 1)
 		{
 			c := CryptConst
@@ -576,12 +571,12 @@ FINITA_LA_COMEDIA:
 			if !dllCall("Advapi32\CryptAcquireContextW","Ptr*",hCryptProv,"Uint",0,"Uint",0,"Uint",c.PROV_RSA_AES,"UInt",c.CRYPT_VERIFYCONTEXT )
 				{foo := "CryptAcquireContextW", err := GetLastError(), err2 := ErrorLevel
 				GoTO FINITA_DA_COMEDIA
-				}	
+				}
 			if !dllCall("Advapi32\CryptCreateHash","Ptr",hCryptProv,"Uint",HASH_ALG,"Uint",0,"Uint",0,"Ptr*",hHash )
 				{foo := "CryptCreateHash1", err := GetLastError(), err2 := ErrorLevel
 				GoTO FINITA_DA_COMEDIA
 				}
-			
+
 			if (pwd != "")			;going HMAC
 			{
 				passLen := StrPutVar(pwd, passBuf,0,this.PassEncoding)
@@ -606,7 +601,7 @@ FINITA_LA_COMEDIA:
 					GoTO FINITA_DA_COMEDIA
 					}
 			}
-				
+
 			if pFile
 			{
 				f := FileOpen(pFile,"r","CP0")
@@ -656,7 +651,7 @@ FINITA_LA_COMEDIA:
 				GoTO FINITA_DA_COMEDIA
 				}
 			hashval := b2a_hex( pbHash, HashLen )
-				
+
 		FINITA_DA_COMEDIA:
 			DllCall("FreeLibrary", "Ptr", hModule)
 			dllCall("Advapi32\CryptDestroyHash","Ptr",hHash)
@@ -667,7 +662,7 @@ FINITA_LA_COMEDIA:
 				if (A_IsCompiled = 1)
 					return ""
 				else
-					msgbox % foo " call failed with:`nErrorLevel: " err2 "`nLastError: " err "`n" ErrorFormat(err) 
+					msgbox % foo " call failed with:`nErrorLevel: " err2 "`nLastError: " err "`n" ErrorFormat(err)
 				return 0
 			}
 			return hashval
@@ -756,7 +751,7 @@ GetKeySalt(hKey)
 				,"Ptr",&pb
 				,"Uint*",dwCount
 				,"Uint",0)
-	msgbox % "Fail to get SALT"	
+	msgbox % "Fail to get SALT"
 	;~ msgbox % ByteToHash(pb,dwCount) "`n" dwCount
 }
 
@@ -1077,8 +1072,8 @@ Free(byRef var)
 MinClick(title, xcord, ycord, nwidth, nheight, button:="left")
 {
 SetControlDelay, -1
-SysGet, SM_CYSIZE, 31	
-SysGet, SM_CYEDGE, 46	
+SysGet, SM_CYSIZE, 31
+SysGet, SM_CYEDGE, 46
 SysGet, SM_CXEDGE, 45
 SysGet, SM_CXSIZE, 30
 titleHeight := SM_CYSIZE + SM_CYEDGE
@@ -1090,12 +1085,12 @@ Buttonx = %xcord%
 WinGetPos,,,width,height, %title%
 	if (height = nheight && width = nwidth)
 		{
-			Y := Buttony	
+			Y := Buttony
 			X := Buttonx
 		}
 	  else
 		{
-			Y := Buttony - titleHeight	
+			Y := Buttony - titleHeight
 			X := Buttonx - titleWidth
 		}
 	ControlClick, X%X% Y%Y%, %title%,, %button%
@@ -1107,10 +1102,10 @@ ControlFromPoint(X, Y, WinTitle="", WinText="", ByRef cX="", ByRef cY="", Exclud
     static EnumChildFindPointProc=0
     if !EnumChildFindPointProc
         EnumChildFindPointProc := RegisterCallback("EnumChildFindPoint","Fast")
-    
+
     if !(target_window := WinExist(WinTitle, WinText, ExcludeTitle, ExcludeText))
         return false
-    
+
     VarSetCapacity(rect, 16)
     DllCall("GetWindowRect","uint",target_window,"uint",&rect)
     VarSetCapacity(pah, 36, 0)
@@ -1164,7 +1159,7 @@ EnumChildFindPoint(aWnd, lParam)
 
 CreateMask()
 {
-    Gui, 99:New   
+    Gui, 99:New
 }
 
 Mask(Window)
@@ -1175,11 +1170,11 @@ Mask(Window)
         xtrim := xe+5
         ytrim := ye
         wtrim := we-10
-        htrim := he-5  
+        htrim := he-5
         Loop
         {
             If WinActive(clientname)
-            {   
+            {
                   Gui, 99:Show, x%xtrim% y%ytrim% w%wtrim% h%htrim%, Mask
                   WinSet, Transparent, 1, Mask
                   ;WinMove, Mask,, %xtrim%, %ytrim%

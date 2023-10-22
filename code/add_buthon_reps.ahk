@@ -1,16 +1,4 @@
-﻿#NoEnv
-#MaxHotkeysPerInterval 99000000
-#HotkeyInterval 99000000
-#KeyHistory 0
-ListLines Off
-Process, Priority, , A
-SetBatchLines, -1
-SetKeyDelay, -1, -1
-SetMouseDelay, -1
-SetDefaultMouseSpeed, 0
-SetWinDelay, -1
-
-; ......................Надписи на кнопках......................
+﻿; ......................Надписи на кнопках......................
 setEnglish() {
   SendMessage, 0x50,, 0x4090409,, A
   }
@@ -21,36 +9,36 @@ setRussian() {
 
 Gui, 3: +LastFound +AlwaysOnTop -Caption +ToolWindow
 
-Gui, 3: Add, Button, greps_igo x0 y0 w100 h30, Лечу
+Gui, 3: Add, Button, greps_spam x0 y0 w100 h30, Нарушает в репорт
 Gui, 3: Add, Button, greps_gps x0 y35 w100 h30, Поставлю метку
 Gui, 3: Add, Button, greps_yes x0 y70 w100 h30, Да
 Gui, 3: Add, Button, greps_no x0 y105 w100 h30, Нет
-Gui, 3: Add, Button, greps_babochka x0 y140 w100 h30, Бабочка
-Gui, 3: Add, Button, greps_fact x0 y175 w100 h30, По факту
+Gui, 3: Add, Button, greps_narush_net x0 y140 w100 h30, Следил Но ничего нет
+Gui, 3: Add, Button, greps_proofs x0 y175 w100 h30, Отправляем на форум
 Gui, 3: Add, Button, greps_not_tp x0 y210 w100 h30, Не телепортируем
-Gui, 3: Add, Button, greps_proofs x0 y245 w100 h30, При наличии док-в
-Gui, 3: Add, Button, greps_narush_net x0 y280 w100 h32, Нет нар.пишите жб
+Gui, 3: Add, Button, greps_fact x0 y245 w100 h30, По факту 
+Gui, 3: Add, Button, greps_podrobnee x0 y280 w100 h32, Опишите подробнее
 Gui, 3: Add, Button, greps_ne_razglas x0 y315 w100 h32, Не разглашаем
 
 Gui, 3: Add, Button, greps_gg x110 y0 w100 h32, Приятной игры
 Gui, 3: Add, Button, greps_tech_forum x110 y35 w100 h32, Тех. раздел
-Gui, 3: Add, Button, greps_podrobnee x110 y70 w100 h32, Опишите подробнее
+Gui, 3: Add, Button, greps_babochka x110 y70 w100 h32, Бабочка 
 Gui, 3: Add, Button, greps_we_not_fix_swim_car x110 y105 w100 h30, Утопленная машина
 Gui, 3: Add, Button, greps_mech x110 y140 w100 h30, Вызовите механика
-Gui, 3: Add, Button, greps_relog x110 y175 w100 h30, Перезайдите
-Gui, 3: Add, Button, greps_problem_solved x110 y210 w100 h30, Проблема решена
+Gui, 3: Add, Button, greps_medic  x110 y175 w100 h30, Вызовите EMS
+Gui, 3: Add, Button, greps_police_pomehaIC x110 y210 w100 h30, Вызовите Полицию
 Gui, 3: Add, Button, greps_nakazan x110 y245 w100 h30, Игрок наказан
 Gui, 3: Add, Button, greps_ne_dvigaetsa x110 y280 w100 h32, Персонаж не двигается
-Gui, 3: Add, Button, greps_report_closed x110 y315 w100 h32, Репорт CLOSED
+Gui, 3: Add, Button, greps_alohelp x110 y315 w100 h32, На всякие ХЕЕЛП ТП
 
 Gui, 3: Add, Button, greps_utid x220 y0 w100 h32, Уточните ID
-Gui, 3: Add, Button, greps_medic x220 y35 w100 h32, Вызовите EMS
+Gui, 3: Add, Button, greps_relog x220 y35 w100 h32, Перезайдите
 Gui, 3: Add, Button, greps_obzhalovanie x220 y70 w100 h32, Обжалование
 Gui, 3: Add, Button, greps_offtop x220 y105 w100 h30, Не оффтопьте
 Gui, 3: Add, Button, greps_off_news x220 y140 w100 h30, Офиц.новости
 Gui, 3: Add, Button, greps_vip_uval x220 y175 w100 h30, Вип увал
 Gui, 3: Add, Button, greps_mind_self x220 y210 w100 h30, Узнайте сами
-Gui, 3: Add, Button, greps_police_pomehaIC x220 y245 w100 h30, Полицию
+Gui, 3: Add, Button, greps_problem_solved x220 y245 w100 h30, Проблема решена
 Gui, 3: Add, Button, greps_na_usmotrenie x220 y280 w100 h32, На усмотр
 Gui, 3: Add, Button, greps_preduprezden x220 y315 w100 h32, Игрок предупрежден
 
@@ -119,6 +107,14 @@ Loop
 Return
 
 ; ...................... Содержимое кнопок ......................
+      reps_spam:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+          setRussian()
+          SendInput, Вы нарушаете правила обращения в репорт. Последующие сообщения, не относящиеся к функционалу/игровому процессу будут считатся за оффтоп и Вы будете кикнуты с сервера.{enter}
+          sleep 500
+          setEnglish()
+      Return
 
       reps_yes:
         WinActivate, "ahk_exe ragemp_v.exe"
@@ -184,7 +180,7 @@ Return
         WinActivate, "ahk_exe ragemp_v.exe"
         MouseClick, left, -689, 315
       
-        links := ["Не телепортируем.{enter}","Не телепортируем.{enter}"]
+        links := ["Администрация не телепортирует игроков.{enter}","Не телепортируем.{enter}"]
         {
           Random,var , 1,2
           sleep 100
@@ -199,7 +195,7 @@ Return
         WinActivate, "ahk_exe ragemp_v.exe"
         MouseClick, left, -689, 315
       
-        links := ["При наличии доказательств нарушения Вы можете оставить жалобу на игрока, на форуме нашего проекта forum.gta5rp.com – Сервер №14 Del Perro – Жалобы – Жалобы на игроков. Приятной игры.{enter}","При наличии доказательств нарушения Вы можете оставить жалобу на игрока, на форуме нашего проекта forum.gta5rp.com – Сервер №14 Del Perro – Жалобы – Жалобы на игроков. Приятной игры.{enter}"]
+        links := ["При наличии доказательств нарушения Вы можете оставить жалобу на игрока, на форуме нашего проекта forum.gta5rp.com – Сервер №14 Del Perro – Жалобы – Жалобы на игроков.{enter}","Если у Вас есть видеофиксация нарушения, то обратитесь пожалуйста на Форум в раздел Жалобы на игроков.{enter}"]
         {
           Random,var , 1,2
           sleep 100
@@ -354,15 +350,10 @@ Return
         WinActivate, "ahk_exe ragemp_v.exe"
         MouseClick, left, -689, 315
       
-        links := ["Не разглашаем.{enter}","Не разглашаем.{enter}"]
-        {
-          Random,var , 1,2
-          sleep 100
           setRussian()
-          SendInput, % links[var]
+          SendInput, Эта информация является конфиденциальной и предназначена только для администратора. {enter}
           sleep 500
           setEnglish()
-        }
       Return
       reps_obzhalovanie:
         WinActivate, "ahk_exe ragemp_v.exe"
@@ -581,7 +572,7 @@ Return
         WinActivate, "ahk_exe ragemp_v.exe"
         MouseClick, left, -689, 315
       
-        links := ["Не запрещено.{enter}","Не запрещено.{enter}"]
+        links := ["Не запрещено.{enter}","Это не запрещено.{enter}"]
         {
           Random,var , 1,2
           sleep 100
@@ -971,19 +962,13 @@ Return
           setEnglish()
         }
       Return
-      reps_report_closed:
+      reps_alohelp:
         WinActivate, "ahk_exe ragemp_v.exe"
         MouseClick, left, -689, 315
-      
-        links := ["Репорт закрывается автоматически после ответа администратора.{enter}","Репорт закрывается автоматически после ответа администратора.{enter}"]
-        {
-          Random,var , 1,2
-          sleep 100
           setRussian()
-          SendInput, % links[var]
+          SendInput, Опишите ситуацию в репорт, чтобы мы могли помочь Вам качественнее.{enter}
           sleep 500
           setEnglish()
-        }
       Return
       reps_preduprezden:
         WinActivate, "ahk_exe ragemp_v.exe"

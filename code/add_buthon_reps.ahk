@@ -1,4 +1,23 @@
+﻿#NoEnv
+#MaxHotkeysPerInterval 99000000
+#HotkeyInterval 99000000
+#KeyHistory 0
+ListLines Off
+Process, Priority, , A
+SetBatchLines, -1
+SetKeyDelay, -1, -1
+SetMouseDelay, -1
+SetDefaultMouseSpeed, 0
+SetWinDelay, -1
+
 ; ......................Надписи на кнопках......................
+setEnglish() {
+  SendMessage, 0x50,, 0x4090409,, A
+  }
+
+setRussian() {
+  SendMessage, 0x50,, 0x4190419,, A
+  }
 
 Gui, 3: +LastFound +AlwaysOnTop -Caption +ToolWindow
 
@@ -81,24 +100,23 @@ Gui, 3: Add, Button, greps_kurator x660 y315 w100 h32, У куратора
 
 Gui, 3: Color, black
 
-; ...................... Проверяю открыт ли репорт ......................
-    Loop
-        {
-          PixelGetColor, color1, 670, 15
-          PixelGetColor, color2, 741, 27
-          PixelGetColor, color3, 822, 46
-        
-          if (color1 = 0x555555 and color2 = 0xF6F6F6 and color3 = 0x555555)
-          {
-            Gui, 3: Show, w761 h350 x989 y15 NoActivate, binder_btns
-          }
-          Else
-          {
-            Sleep, 300
-            Gui, 3: Hide
-          }
-        }
-        Return
+Loop
+{
+  PixelGetColor, color1, 670, 15
+  PixelGetColor, color2, 741, 27
+  PixelGetColor, color3, 822, 46
+
+  if (color1 = 0x555555 and color2 = 0xF6F6F6 and color3 = 0x555555)
+  {
+    Gui, 3: Show, w761 h350 x989 y15 NoActivate, binder_btns
+  }
+  Else
+  {
+    Sleep, 300
+    Gui, 3: Hide
+  }
+}
+Return
 
 ; ...................... Содержимое кнопок ......................
 

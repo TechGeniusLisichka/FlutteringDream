@@ -1,590 +1,1085 @@
-; greps_spam Нарушает в репорт
-; greps_gps Поставлю метку
-; greps_utochnite Уточните
-; greps_perevedite Переведите
-; greps_narush_net Следил Но ничего нет
-; greps_proofs Отправляем на форум
-; greps_not_tp Не телепортируем
-; greps_fact По факту 
-; greps_podrobnee Опишите подробнее
-; greps_ne_razglas Не разглашаем
 
-; greps_gg Приятной игры
-; greps_tech_forum Тех. раздел
-; greps_babochka Бабочка 
-; greps_we_not_fix_swim_car Утопленная машина
-; greps_mech Вызовите механика
-; greps_medic Вызовите EMS
-; greps_police_pomehaIC Вызовите Полицию
-; greps_preduprezden Игрок предупрежден
-; greps_ne_dvigaetsa Персонаж не двигается
-; greps_alohelp На всякие ХЕЕЛП ТП
-
-; greps_utid Уточните ID
-; greps_relog Перезайдите
-; greps_obzhalovanie Обжалование
-; greps_offtop Не оффтопьте
-; greps_off_news Офиц.новости
-; greps_vip_uval Вип увал
-; greps_mind_self Узнайте сами
-; greps_problem_solved Проблема решена
-; greps_na_usmotrenie На усмотр
-; greps_ne_dvigaetsa  Персонаж не двигается
-
-; greps_tex_pochta 3дняБан
-; greps_isk_v_sud Иск в суд
-; greps_dve_mashini 2ая машина
-; greps_proverim Проверим
-; greps_slezhu Слежу
-; greps_ne_zapret Не запрещено
-; greps_ic_moment IC момент
-; greps_otvet_up Ответ выше
-; greps_pisat_ss Напишите СС
-; greps_peredam Передам
-
-; greps_ne_snimaem Не снимаем SYS
-; greps_prosite_gos Просите сотрудников
-; greps_ls_admin x440 В личку админу
-; greps_ochered_zhalob Рассмотр. ЖБ
-; greps_gde_nrp Где НРП?
-; greps_vnimatelno Внимательней
-; greps_ne_chinim Не чиним
-; greps_bodikamera Бодикамера
-; greps_vpn VPN
-; greps_kd_tir КД Тир
-
-; greps_demorgan Деморган схавал нелегал
-; greps_kd_orga КД Орга
-; greps_nal_kazik Нал Казик
-; greps_moped Арендуйте новый
-; greps_small_rank Мелкий ранг
-; greps_bag_nika Баг ника рестарт
-; greps_smena_nika Имя_Фамилия
-; greps_27pp 2.7 ПП
-; greps_cheat Читер
-; greps_soznanie Потеряйте сознание
-
-; greps_podarki F10-Подарки
-; greps_sudimost Снять судимости
-; greps_wait Ожидайте
-; greps_minikarta Нет миникарты
-; greps_evakuator Эвакуируйте
-; greps_strelka_vniz Стрелочка вниз
-; greps_vremya_ft М-Личное дело
-; greps_gde_kupit Где купить
-; greps_kvest Время ивента
-; greps_kurator У куратора
-
-; ; ...................... Содержимое кнопок ......................
-; reps_spam:
-
-;     SendInput, Вы нарушаете правила обращения в репорт. Последующие сообщения, не относящиеся к функционалу/игровому процессу, будут считатся за оффтоп, и Вы будете кикнуты с сервера.{enter}
-
-; Return
-
-; reps_utochnite:
-
-;     SendInput, Уточните?{enter}
-
-; Return
-
-; reps_perevedite:
-
-;     SendInput, Переведите{enter}
-
-; Return
-
-; reps_babochka:
-
-;     links := ["Скорее всего, вы не успели доставить бабочку за 10 минут. Если вы считаете, что успели за указанное ранее время, напишите в тех раздел на форуме.{enter}","Скорее всего, вы не успели доставить бабочку за 10 минут. Если вы считаете, что успели за указанное ранее время - напишите в тех раздел на форуме.{enter}"]
-;     {
-
-;     }
-; Return
-
-; reps_fact:
-
-;     links := ["Пишите по факту нарушения.{enter}","Пишите по факту нарушения.{enter}"]
-;     {
-
-;     }
-; Return
-
-; reps_not_tp:
-
-;     links := ["Администрация не телепортирует игроков.{enter}","Не телепортируем.{enter}"]
-;     {
-
-;     }
-; Return
-
-; reps_proofs:
-
-;     links := ["При наличии доказательств нарушения Вы можете оставить жалобу на игрока, на форуме нашего проекта forum.gta5rp.com – Сервер №2 Strawberry – Жалобы – Жалобы на игроков.{enter}","Если у Вас есть видеофиксация нарушения, то обратитесь пожалуйста на Форум в раздел Жалобы на игроков.{enter}"]
-;     {
-
-;         sleep 600
-
-;     }
-; Return
-; reps_we_not_fix_swim_car:
-
-;     links := ["Переместил Ваш автомобиль на сушу, теперь вам надо вызвать механика, дабы починить авто. Ремкомплект тут не поможет.{enter}","Переместила авто, вызовите механика для починки вашего ТС. Если механики не будут отвечать, эвакуируйте авто либо ожидайте, когда все же ответят.{enter}"]
-;     {
-
-;         sleep 600
-
-;     }
-; Return
-; reps_mind_self:
-
-;     links := ["Администрация не сообщает такого рода информацию, узнайте это самостоятельно.{enter}","Узнайте данную информацию самостоятельно или у игроков.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_tech_forum:
-
-;     links := ["В такой ситуации оформите тему в Техническом разделе на форуме. forum.gta5rp.com - Регистрируетесь - Технический Раздел - Strawberry | Технический раздел.{enter}","В такой ситуации напишите тему в техническом разделе на форуме, forum.gta5rp.com.{enter}"]
-;     {
-
-;         sleep 700
-
-;     }
-; Return
-
-; reps_podrobnee:
-
-;     links := ["Опишите ваш вопрос/проблему подробнее.{enter}","Опишите ваш вопрос/проблему подробнее.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_gg:
-
-;     links := ["Приятной игры и хорошего настроения.{enter}","Приятной игры на сервере Strawberry.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_relog:
-
-;     links := ["Релогнитесь на сервер, нажав F1 - сервер Strawberry.{enter}","Релогнитесь на сервер, нажав F1 - сервер Del Perro.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_problem_solved:
-
-;     links := ["Видимо Ваша проблема уже решена. Приятной игры и хорошего настроения на сервере Strawberry.{enter}","Видимо Ваша проблема уже решена. Приятной игры и хорошего настроения на сервере Strawberry.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_nakazan:
-
-;     links := ["Игрок наказан согласно правилам проекта. Приятной игры.{enter}","Игрок наказан, спасибо за помощь. Приятной игры.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_ne_dvigaetsa:
-
-;     links := ["Нажмите F1 два раза, либо F1 потом F2, либо Alt+F1.{enter}","Нажмите F1 два раза, либо F1 потом F2, либо Alt+F1.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_narush_net:
-
-;     links := ["Во время наблюдений за игроком нарушений не заметила. При наличии доказательств нарушения Вы можете оставить жалобу на игрока, на форуме нашего проекта forum.gta5rp.com – Сервер №2 Strawberry – Жалобы – Жалобы на игроков.{enter}","Во время наблюдений за игроком нарушений не заметила. При наличии доказательств нарушения Вы можете оставить жалобу на игрока, на форуме нашего проекта forum.gta5rp.com – Сервер №14 Del Perro – Жалобы – Жалобы на игроков.{enter}"]
-;     {
-
-;         sleep 800
-
-;     }
-; Return
-; reps_ne_razglas:
-
-;     SendInput, Эта информация является конфиденциальной и предназначена только для администратора. {enter}
-
-; Return
-
-; reps_obzhalovanie:
-
-;     links := ["Если вы не согласны с полученным наказанием, можете оформить обжалование на форуме.{enter}","Если вы не согласны с выданным вам наказанием, можете оформить обжалование на форуме.{enter}"]
-;     {
-
-;     }
-; Return
-
-; reps_gps:
-
-;     links := ["Сейчас поставлю метку.{enter}","Сейчас дам вам метку.{enter}"]
-;     {
-
-;     }
-; Return
-
-; reps_mech:
-
-;     links := ["Вызовите автомеханика.{enter}","Вызовите механика.{enter}"]
-;     {
-
-;     }
-; Return
-
-; reps_utid:
-
-;     links := ["Уточните ID.{enter}","Уточните ID игрока.{enter}"]
-;     {
-
-;     }
-; Return
-
-; reps_medic:
-
-;     links := ["Вызовите медика.{enter}","Вызовите сотрудника EMS.{enter}"]
-;     {
-
-;     }
-; Return
-
-; reps_offtop:
-
-;     links := ["Прекратите оффтоп.{enter}","Не оффтопьте в репорт.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_off_news:
-
-;     links := ["Следите за оф.новостями проекта.{enter}","Следите за официальными новостями проекта.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_vip_uval:
-
-;     links := ["M-Меню фракции. Через поиск находите себя, затем нажимаете на перечеркнутый кружочек. (Если есть VIP){enter}","M-Меню фракции. Через поиск находите себя, затем нажимаете на перечеркнутый кружочек. (Если есть VIP){enter}"]
-;     {
-
-;     }
-; Return
-; reps_police_pomehaIC:
-
-;     links := ["Увы, это IC момент. Вызовите полицию, дабы решить проблему.{enter}","Увы, это IC момент. Вызовите полицию, дабы решить проблему.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_na_usmotrenie:
-
-;     links := ["Наказание выдается на усмотрение администрации.{enter}","Наказание выдается на усмотрение администрации.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_tex_pochta:
-
-;     links := ["Обратитесь в нашу поддержку по ссылке https://gta5rp.com/support. Отвечать нужно будет на то же письмо которое придет.{enter}","В такой ситуации вам необходимо обратиться в нашу поддержку по ссылке https://gta5rp.com/support. Отвечать нужно будет на то же письмо которое придет.{enter}"]
-;     {
-
-;     }
-; Return
-
-; reps_isk_v_sud:
-
-;     links := ["Если вы считаете, что сотрудник нарушает закон, Вы можете обратиться с исковым заявлением в суд. Иск можно заполнить на форуме нашего сервера, forume.gta5rp.com - Сервер №2 Strawberry - Гос.организации - Government - Судебная власть.{enter}","Если вы считаете, что сотрудник нарушает закон, Вы можете обратиться с исковым заявлением в суд. Иск можно заполнить на форуме нашего сервера, forume.gta5rp.com - Сервер №2 Strawberry - Гос.организации - Government - Судебная власть.{enter}"]
-;     {
-
-;         sleep 700
-
-;     }
-; Return
-; reps_dve_mashini:
-
-;     links := ["Откройте телефон - Авто - Настройки - Нажмите на нужное авто стрелочку вверх и поднимите его, после чего нажмите сохранить. Если у вас парковка, вам необходимо продать место и купить новое.{enter}","Откройте телефон - Авто - Настройки - Нажмите на нужное авто стрелочку вверх и поднимите его, после чего нажмите сохранить. Если у вас парковка, вам необходимо продать место и купить новое.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_proverim:
-
-;     links := ["Проверим, спасибо.{enter}","Спасибо, проверим.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_slezhu:
-
-;     links := ["Слежу за ситуацией.{enter}","Наблюдаю за ситуацией.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_ne_zapret:
-
-;     links := ["Не запрещено.{enter}","Это не запрещено.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_ic_moment:
-
-;     links := ["Это IC момент.{enter}","IC момент.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_otvet_up:
-
-;     links := ["Ответ выше.{enter}","Ответ был дан выше.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_pisat_ss:
-
-;     links := ["Обратитесь к старшему составу/лидеру/куратору фракции.{enter}","Обратитесь к старшему составу, лидеру или куратору фракции.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_ne_snimaem:
-
-;     links := ["Не снимаем системное наказание.{enter}","Системные наказания не амнистируются.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_prosite_gos:
-
-;     links := ["Попросите об этом сотрудников.{enter}","Попросите гос. сотрудников помочь.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_ls_admin:
-
-;     links := ["Обратитесь к администратору в личные сообщения в дискорд.{enter}","Напишите администратору в личные сообщения в дискорд.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_ochered_zhalob:
-
-;     links := ["Жалобы/обжалования рассматриваются в порядке очереди, ожидайте.{enter}","Жалобы/обжалования рассматриваются в порядке очереди, ожидайте.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_gde_nrp:
-
-;     links := ["В чем НРП?{enter}","В чем НРП поведение?{enter}"]
-;     {
-
-;     }
-; Return
-; reps_vnimatelno:
-
-;     links := ["Смотрите внимательней.{enter}","Ищите внимательней.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_ne_chinim:
-
-;     links := ["Не чиним авто, вызовите механика или воспользуйтесь рем. комплектом.{enter}","Не ремонтируем авто, вызовите механика или воспользуйтесь рем. комплектом.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_bodikamera:
-
-;     links := ["Бодикамера лишь предмет в игре для того, чтобы Ваши откаты, записанные на сторонние программы, могли использоваться в различных РП процессах, дабы привязать Ваш ООС откат к IC.{enter}","Бодикамера лишь предмет в игре для того, чтобы Ваши откаты, записанные на сторонние программы могли использоваться в различных РП процессах, дабы привязать Ваш ООС откат к IC.{enter}"]
-;     {
-
-;         sleep 900
-
-;     }
-; Return
-; reps_vpn:
-
-;     links := ["Воспользуйтесь VPN.{enter}","Включите VPN.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_demorgan:
-
-;     links := ["При попадании в деморган весь нелегал изымается и возвращен не будет.{enter}","При попадании в деморган весь нелегал изымается и возвращен не будет.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_kd_orga:
-
-;     links := ["КД на вступление в следующую организацию отсчитывается с момента вступления в предыдущую, и составляет 2 часа.{enter}","КД на вступление в следующую организацию отсчитывается с момента вступления в предыдущую, и составляет 2 часа.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_nal_kazik:
-
-;     links := ["Если крутили физическое колесо удачи - заберите деньги в окне JackPot. Оно находится в казино, справа от входа, спускаясь по ступенькам. Если в телефоне - деньги начислились Вам справа внизу.{enter}","Если крутили физическое колесо удачи - заберите деньги в окне JackPot. Оно находится в казино, справа от входа, спускаясь по ступенькам. Если в телефоне - деньги начислились Вам справа внизу.{enter}"]
-;     {
-
-;         sleep 800
-
-;     }
-; Return
-; reps_moped:
-
-;     links := ["Арендуйте новый.{enter}","Арендуйте новый.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_small_rank:
-
-;     links := ["Ваш ранг не позволяет.{enter}","Ваш ранг не позволяет.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_bag_nika:
-
-;     links := ["Если Вы сменили ник - меню фракции/организации могло забагаться. Дождитесь рестарта.{enter}","Если Вы сменили ник - меню фракции/организации могло забагаться. Дождитесь рестарта.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_smena_nika:
-
-;     links := ["Необходимо писать через нижнее подчеркивание. Вот так: Имя_Фамилия{enter}","Необходимо писать через нижнее подчеркивание. Пример: Имя_Фамилия{enter}"]
-;     {
-
-;     }
-; Return
-; reps_27pp:
-
-;     links := ["Ваш ник не подходит под рамки РП и нарушает пункт 2.7 правил проекта.{enter}","Ваш ник нарушает пункт 2.7 правил проекта.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_cheat:
-
-;     links := ["Почему Вы так решили?{enter}","Почему так считаете?{enter}"]
-;     {
-
-;     }
-; Return
-; reps_podarki:
-
-;     links := ["F10-Подарки.{enter}","F10-Подарки.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_sudimost:
-
-;     links := ["Судимости можно снять на черном рынке, начав новую жизнь за 150 000, или же пройти юридическую реабилитацию, обратившись к сотрудникам правительства.{enter}","Судимости можно снять на черном рынке, начав новую жизнь за 150 000, или же пройти юридическую реабилитацию, обратившись к сотрудникам правительства.{enter}"]
-;     {
-
-;         sleep 700
-
-;     }
-; Return
-; reps_wait:
-
-;     links := ["Ожидайте.{enter}","Ожидайте.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_minikarta:
-
-;     links := ["Если у вас пропала миникарта, отключите фикс миникарты для мониторов 21:9 в F10-Шестеренка-Интерфейс, после чего полностью перезайдите в игру.{enter}","Если у вас нет миникарты, отключите фикс миникарты для мониторов 21:9 в F10-Шестеренка-Интерфейс, после чего полностью перезайдите в игру.{enter}"]
-;     {
-
-;         sleep 700
-
-;     }
-; Return
-; reps_gde_kupit:
-
-;     links := ["Купить металоискатель можно в Secret Shop'е. Лопату в рыболовном магазине.{enter}","Купить металоискатель можно в Secret Shop'е. Лопату в рыболовном магазине.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_kvest:
-
-;     links := ["Задания и экзамены будут доступны до 07:00 МСК 16 октября. Купить призы у директора можно будет до 07:00 МСК 30 октября.{enter}","Задания и экзамены будут доступны до 07:00 МСК 16 октября. Купить призы у директора можно будет до 07:00 МСК 30 октября.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_alohelp:
-
-;     SendInput, Опишите ситуацию в репорт, чтобы мы могли помочь Вам качественнее.{enter}
-
-; Return
-; reps_preduprezden:
-
-;     links := ["Игрок предупрежден.{enter}","Игрок предупрежден.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_peredam:
-
-;     links := ["Передам.{enter}","Передам.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_kd_tir:
-
-;     links := ["КД на тренировку в обычном тире - 90 минут, в армейском - 60.{enter}","КД на тренировку в обычном тире - 90 минут, в армейском - 60.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_soznanie:
-
-;     links := ["Потеряйте сознание.{enter}","Потеряйте сознание.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_evakuator:
-
-;     links := ["Эвакуируйте авто.{enter}","Эвакуируйте авто.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_strelka_vniz:
-
-;     links := ["Стрелочка вниз.{enter}","Стрелочка вниз.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_vremya_ft:
-
-;     links := ["М-Личное дело.{enter}","М-Личное дело.{enter}"]
-;     {
-
-;     }
-; Return
-; reps_kurator:
-
-;     links := ["Уточните у куратора фракции.{enter}","Уточните у куратора фракции.{enter}"]
-;     {
-
-;     }
-; Return
+; ......................Надписи на кнопках......................
+setEnglish() {
+  SendMessage, 0x50,, 0x4090409,, A
+  }
+
+setRussian() {
+  SendMessage, 0x50,, 0x4190419,, A
+  }
+
+Gui, 3: +LastFound +AlwaysOnTop -Caption +ToolWindow
+
+Gui, 3: Add, Button, greps_spam x0 y0 w100 h30, Нарушает в репорт
+Gui, 3: Add, Button, greps_gps x0 y35 w100 h30, Поставлю метку
+Gui, 3: Add, Button, greps_utochnite x0 y70 w100 h30, Уточните
+Gui, 3: Add, Button, greps_perevedite x0 y105 w100 h30, Переведите
+Gui, 3: Add, Button, greps_narush_net x0 y140 w100 h30, Следил Но ничего нет
+Gui, 3: Add, Button, greps_proofs x0 y175 w100 h30, Отправляем на форум
+Gui, 3: Add, Button, greps_not_tp x0 y210 w100 h30, Не телепортируем
+Gui, 3: Add, Button, greps_fact x0 y245 w100 h30, По факту 
+Gui, 3: Add, Button, greps_podrobnee x0 y280 w100 h32, Опишите подробнее
+Gui, 3: Add, Button, greps_ne_razglas x0 y315 w100 h32, Не разглашаем
+
+Gui, 3: Add, Button, greps_gg x110 y0 w100 h32, Приятной игры
+Gui, 3: Add, Button, greps_tech_forum x110 y35 w100 h32, Тех. раздел
+Gui, 3: Add, Button, greps_babochka x110 y70 w100 h32, Бабочка 
+Gui, 3: Add, Button, greps_we_not_fix_swim_car x110 y105 w100 h30, Утопленная машина
+Gui, 3: Add, Button, greps_mech x110 y140 w100 h30, Вызовите механика
+Gui, 3: Add, Button, greps_medic  x110 y175 w100 h30, Вызовите EMS
+Gui, 3: Add, Button, greps_police_pomehaIC x110 y210 w100 h30, Вызовите Полицию
+Gui, 3: Add, Button, greps_nakazan x110 y245 w100 h30, Игрок наказан
+Gui, 3: Add, Button, greps_preduprezden x110 y280 w100 h32, Игрок предупрежден
+Gui, 3: Add, Button, greps_alohelp x110 y315 w100 h32, На всякие ХЕЕЛП ТП
+
+Gui, 3: Add, Button, greps_utid x220 y0 w100 h32, Уточните ID
+Gui, 3: Add, Button, greps_relog x220 y35 w100 h32, Перезайдите
+Gui, 3: Add, Button, greps_obzhalovanie x220 y70 w100 h32, Обжалование
+Gui, 3: Add, Button, greps_offtop x220 y105 w100 h30, Не оффтопьте
+Gui, 3: Add, Button, greps_off_news x220 y140 w100 h30, Офиц.новости
+Gui, 3: Add, Button, greps_vip_uval x220 y175 w100 h30, Вип увал
+Gui, 3: Add, Button, greps_mind_self x220 y210 w100 h30, Узнайте сами
+Gui, 3: Add, Button, greps_problem_solved x220 y245 w100 h30, Проблема решена
+Gui, 3: Add, Button, greps_na_usmotrenie x220 y280 w100 h32, На усмотр
+Gui, 3: Add, Button, greps_ne_dvigaetsa x220 y315 w100 h32, Персонаж не двигается
+
+Gui, 3: Add, Button, greps_tex_pochta x330 y0 w100 h32, 3дняБан
+Gui, 3: Add, Button, greps_isk_v_sud x330 y35 w100 h32, Иск в суд
+Gui, 3: Add, Button, greps_dve_mashini x330 y70 w100 h32, 2ая машина
+Gui, 3: Add, Button, greps_proverim x330 y105 w100 h32, Проверим
+Gui, 3: Add, Button, greps_slezhu x330 y140 w100 h32, Слежу
+Gui, 3: Add, Button, greps_ne_zapret x330 y175 w100 h32, Не запрещено
+Gui, 3: Add, Button, greps_ic_moment x330 y210 w100 h32, IC момент
+Gui, 3: Add, Button, greps_otvet_up x330 y245 w100 h32, Ответ выше
+Gui, 3: Add, Button, greps_pisat_ss x330 y280 w100 h32, Напишите СС
+Gui, 3: Add, Button, greps_peredam x330 y315 w100 h32, Передам
+
+Gui, 3: Add, Button, greps_ne_snimaem x440 y0 w100 h32, Не снимаем SYS
+Gui, 3: Add, Button, greps_prosite_gos x440 y35 w100 h32, Просите сотрудников
+Gui, 3: Add, Button, greps_ls_admin x440 y70 w100 h32, В личку админу
+Gui, 3: Add, Button, greps_ochered_zhalob x440 y105 w100 h32, Рассмотр. ЖБ
+Gui, 3: Add, Button, greps_gde_nrp x440 y140 w100 h32, Где НРП?
+Gui, 3: Add, Button, greps_vnimatelno x440 y175 w100 h32, Внимательней
+Gui, 3: Add, Button, greps_ne_chinim x440 y210 w100 h32, Не чиним
+Gui, 3: Add, Button, greps_bodikamera x440 y245 w100 h32, Бодикамера
+Gui, 3: Add, Button, greps_vpn x440 y280 w100 h32, VPN
+Gui, 3: Add, Button, greps_kd_tir x440 y315 w100 h32, КД Тир
+
+Gui, 3: Add, Button, greps_demorgan x550 y0 w100 h32, Деморган схавал нелегал
+Gui, 3: Add, Button, greps_kd_orga x550 y35 w100 h32, КД Орга
+Gui, 3: Add, Button, greps_nal_kazik x550 y70 w100 h32, Нал Казик
+Gui, 3: Add, Button, greps_moped x550 y105 w100 h32, Арендуйте новый
+Gui, 3: Add, Button, greps_small_rank x550 y140 w100 h32, Мелкий ранг
+Gui, 3: Add, Button, greps_bag_nika x550 y175 w100 h32, Баг ника рестарт
+Gui, 3: Add, Button, greps_smena_nika x550 y210 w100 h32, Имя_Фамилия
+Gui, 3: Add, Button, greps_27pp x550 y245 w100 h32, 2.7 ПП
+Gui, 3: Add, Button, greps_cheat x550 y280 w100 h32, Читер
+Gui, 3: Add, Button, greps_soznanie x550 y315 w100 h32, Потеряйте сознание
+
+Gui, 3: Add, Button, greps_podarki x660 y0 w100 h32, F10-Подарки
+Gui, 3: Add, Button, greps_sudimost x660 y35 w100 h32, Снять судимости
+Gui, 3: Add, Button, greps_wait x660 y70 w100 h32, Ожидайте
+Gui, 3: Add, Button, greps_minikarta x660 y105 w100 h32, Нет миникарты
+Gui, 3: Add, Button, greps_evakuator x660 y140 w100 h32, Эвакуируйте
+Gui, 3: Add, Button, greps_strelka_vniz x660 y175 w100 h32, Стрелочка вниз
+Gui, 3: Add, Button, greps_vremya_ft x660 y210 w100 h32, М-Личное дело
+Gui, 3: Add, Button, greps_gde_kupit x660 y245 w100 h32, Где купить
+Gui, 3: Add, Button, greps_kvest x660 y280 w100 h32, Время ивента
+Gui, 3: Add, Button, greps_bayvito x660 y315 w100 h32, Покупки с 5vito
+
+Gui, 3: Color, black
+
+Loop
+{
+  PixelGetColor, color1, 670, 15
+  PixelGetColor, color2, 741, 27
+  PixelGetColor, color3, 822, 46
+; для beamer color1 = 0x5A5A5A and color2 = 0xFFFFFF and color3 = 0x5A5A5A
+  if (color1 = 0x555555 and color2 = 0xF6F6F6 and color3 = 0x555555)
+  {
+    Gui, 3: Show, w761 h350 x989 y15 NoActivate, binder_btns
+  }
+  Else
+  {
+    Sleep, 300
+    Gui, 3: Hide
+  }
+}
+Return
+
+; ...................... Содержимое кнопок ......................
+      reps_spam:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+          setRussian()
+          SendInput, Вы нарушаете правила обращения в репорт. Последующие сообщения, не относящиеся к функционалу/игровому процессу, будут считатся за оффтоп, и Вы будете кикнуты с сервера.{enter}
+          sleep 500
+          setEnglish()
+      Return
+
+      reps_utochnite:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Уточните.","Уточните."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      
+      reps_perevedite:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Переведите.","Переведите."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      
+      reps_babochka:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Скорее всего, вы не успели доставить бабочку за 10 минут. Если вы считаете, что успели за указанное ранее время, напишите в тех раздел на форуме.{enter}","Скорее всего, вы не успели доставить бабочку за 10 минут. Если вы считаете, что успели за указанное ранее время - напишите в тех раздел на форуме.{enter}"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      
+      reps_fact:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Пишите по факту нарушения.","Пишите по факту нарушения."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      
+      reps_not_tp:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Администрация не телепортирует игроков.","Не телепортируем."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      
+      reps_proofs:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["При наличии доказательств нарушения Вы можете оставить жалобу на игрока, на форуме нашего проекта forum.gta5rp.com – Сервер №2 Strawberry – Жалобы – Жалобы на игроков.{enter}","Если у Вас есть видеофиксация нарушения, то обратитесь пожалуйста на Форум в раздел Жалобы на игроков.{enter}"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 600
+          setEnglish()
+        }
+      Return
+      reps_we_not_fix_swim_car:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Переместил Ваш автомобиль на сушу, теперь вам надо вызвать механика, дабы починить авто. Ремкомплект тут не поможет.{enter}","Переместила авто, вызовите механика для починки вашего ТС. Если механики не будут отвечать, эвакуируйте авто либо ожидайте, когда все же ответят.{enter}"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 600
+          setEnglish()
+        }
+      Return
+      reps_mind_self:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Администрация не сообщает такого рода информацию, узнайте это самостоятельно.","Узнайте данную информацию самостоятельно или у игроков."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_tech_forum:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["В такой ситуации оформите тему в Техническом разделе на форуме. forum.gta5rp.com - Регистрируетесь - Технический Раздел - Strawberry | Технический раздел.{enter}","В такой ситуации напишите тему в техническом разделе на форуме, forum.gta5rp.com.{enter}"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 700
+          setEnglish()
+        }
+      Return
+      
+      reps_podrobnee:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Опишите ваш вопрос/проблему подробнее.","Опишите ваш вопрос/проблему подробнее."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_gg:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Приятной игры и хорошего настроения.{enter}","Приятной игры на сервере Strawberry.{enter}"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_relog:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Релогнитесь на сервер, нажав F1 - сервер Strawberry.{enter}","Релогнитесь на сервер, нажав F1 - сервер Del Perro.{enter}"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_problem_solved:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Видимо Ваша проблема уже решена. Приятной игры и хорошего настроения на сервере Strawberry.{enter}","Видимо Ваша проблема уже решена. Приятной игры и хорошего настроения на сервере Strawberry.{enter}"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_nakazan:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Игрок наказан согласно правилам проекта. Приятной игры.","Игрок наказан, спасибо за помощь. Приятной игры."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_ne_dvigaetsa:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Нажмите F1 два раза, либо F1 потом F2, либо Alt+F1.","Нажмите F1 два раза, либо F1 потом F2, либо Alt+F1."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_narush_net:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Во время наблюдений за игроком нарушений не заметила. При наличии доказательств нарушения Вы можете оставить жалобу на игрока, на форуме нашего проекта forum.gta5rp.com – Сервер №2 Strawberry – Жалобы – Жалобы на игроков.{enter}","Во время наблюдений за игроком нарушений не заметила. При наличии доказательств нарушения Вы можете оставить жалобу на игрока, на форуме нашего проекта forum.gta5rp.com – Сервер №14 Del Perro – Жалобы – Жалобы на игроков.{enter}"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 800
+          setEnglish()
+        }
+      Return
+      reps_ne_razglas:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+          setRussian()
+          SendInput, Эта информация является конфиденциальной и предназначена только для администратора. 
+          sleep 500
+          setEnglish()
+      Return
+      reps_obzhalovanie:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Если вы не согласны с полученным наказанием, можете оформить обжалование на форуме.","Если вы не согласны с выданным вам наказанием, можете оформить обжалование на форуме."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      
+      reps_gps:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Сейчас поставлю метку.","Сейчас дам вам метку."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      
+      reps_mech:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Вызовите автомеханика.","Вызовите механика."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      
+      reps_utid:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Уточните ID.","Уточните ID игрока."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      
+      reps_medic:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Вызовите медика.","Вызовите сотрудника EMS."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      
+      reps_offtop:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Прекратите оффтоп.","Не оффтопьте в репорт."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_off_news:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Следите за оф.новостями проекта.","Следите за официальными новостями проекта."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_vip_uval:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["M-Меню фракции. Через поиск находите себя, затем нажимаете на перечеркнутый кружочек. (Если есть VIP)","M-Меню фракции. Через поиск находите себя, затем нажимаете на перечеркнутый кружочек. (Если есть VIP)"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_police_pomehaIC:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Увы, это IC момент. Вызовите полицию, дабы решить проблему.","Увы, это IC момент. Вызовите полицию, дабы решить проблему."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_na_usmotrenie:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Наказание выдается на усмотрение администрации.","Наказание выдается на усмотрение администрации."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_tex_pochta:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Обратитесь в нашу поддержку по ссылке https://gta5rp.com/support. Отвечать нужно будет на то же письмо которое придет.","В такой ситуации вам необходимо обратиться в нашу поддержку по ссылке https://gta5rp.com/support. Отвечать нужно будет на то же письмо которое придет."]
+        {
+          Random,var , 1,2
+          sleep 100
+          SendInput, % links[var]
+        }
+      Return
+
+      reps_isk_v_sud:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Если вы считаете, что сотрудник нарушает закон, Вы можете обратиться с исковым заявлением в суд. Иск можно заполнить на форуме нашего сервера, forume.gta5rp.com - Сервер №2 Strawberry - Гос.организации - Government - Судебная власть.{enter}","Если вы считаете, что сотрудник нарушает закон, Вы можете обратиться с исковым заявлением в суд. Иск можно заполнить на форуме нашего сервера, forume.gta5rp.com - Сервер №2 Strawberry - Гос.организации - Government - Судебная власть.{enter}"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 700
+          setEnglish()
+        }
+      Return
+      reps_dve_mashini:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Откройте телефон - Авто - Настройки - Нажмите на нужное авто стрелочку вверх и поднимите его, после чего нажмите сохранить. Если у вас парковка, вам необходимо продать место и купить новое.","Откройте телефон - Авто - Настройки - Нажмите на нужное авто стрелочку вверх и поднимите его, после чего нажмите сохранить. Если у вас парковка, вам необходимо продать место и купить новое."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_proverim:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Проверим, спасибо.","Спасибо, проверим."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_slezhu:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Слежу за ситуацией.","Наблюдаю за ситуацией."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_ne_zapret:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Не запрещено.","Это не запрещено."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_ic_moment:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Это IC момент.","IC момент."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+
+
+        }
+      Return
+      reps_otvet_up:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Ответ выше.","Ответ был дан выше."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_pisat_ss:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Обратитесь к старшему составу/лидеру/куратору фракции.","Обратитесь к старшему составу, лидеру или куратору фракции."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_ne_snimaem:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Не снимаем системное наказание.","Системные наказания не амнистируются."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_prosite_gos:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Попросите об этом сотрудников.","Попросите гос. сотрудников помочь."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_ls_admin:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Обратитесь к администратору в личные сообщения в дискорд.","Напишите администратору в личные сообщения в дискорд."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_ochered_zhalob:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Жалобы/обжалования рассматриваются в порядке очереди, ожидайте.","Жалобы/обжалования рассматриваются в порядке очереди, ожидайте."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_gde_nrp:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["В чем НРП?","В чем НРП поведение?"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_vnimatelno:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Смотрите внимательней.","Ищите внимательней."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_ne_chinim:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Не чиним авто, вызовите механика или воспользуйтесь рем. комплектом.","Не ремонтируем авто, вызовите механика или воспользуйтесь рем. комплектом."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_bodikamera:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Бодикамера лишь предмет в игре для того, чтобы Ваши откаты, записанные на сторонние программы, могли использоваться в различных РП процессах, дабы привязать Ваш ООС откат к IC.{enter}","Бодикамера лишь предмет в игре для того, чтобы Ваши откаты, записанные на сторонние программы могли использоваться в различных РП процессах, дабы привязать Ваш ООС откат к IC.{enter}"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 900
+          setEnglish()
+        }
+      Return
+      reps_vpn:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Воспользуйтесь VPN.","Включите VPN."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_demorgan:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["При попадании в деморган весь нелегал изымается и возвращен не будет.","При попадании в деморган весь нелегал изымается и возвращен не будет."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_kd_orga:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["КД на вступление в следующую организацию отсчитывается с момента вступления в предыдущую, и составляет 2 часа.","КД на вступление в следующую организацию отсчитывается с момента вступления в предыдущую, и составляет 2 часа."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_nal_kazik:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Если крутили физическое колесо удачи - заберите деньги в окне JackPot. Оно находится в казино, справа от входа, спускаясь по ступенькам. Если в телефоне - деньги начислились Вам справа внизу.","Если крутили физическое колесо удачи - заберите деньги в окне JackPot. Оно находится в казино, справа от входа, спускаясь по ступенькам. Если в телефоне - деньги начислились Вам справа внизу."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 800
+          setEnglish()
+        }
+      Return
+      reps_moped:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Арендуйте новый.","Арендуйте новый."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_small_rank:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Ваш ранг не позволяет.","Ваш ранг не позволяет."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_bag_nika:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Если Вы сменили ник - меню фракции/организации могло забагаться. Дождитесь рестарта.","Если Вы сменили ник - меню фракции/организации могло забагаться. Дождитесь рестарта."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_smena_nika:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Необходимо писать через нижнее подчеркивание. Вот так: Имя_Фамилия","Необходимо писать через нижнее подчеркивание. Пример: Имя_Фамилия"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_27pp:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Ваш ник не подходит под рамки РП и нарушает пункт 2.7 правил проекта.","Ваш ник нарушает пункт 2.7 правил проекта."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_cheat:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Почему Вы так решили?","Почему так считаете?"]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_podarki:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["F10-Подарки.","F10-Подарки."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_sudimost:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Судимости можно снять на черном рынке, начав новую жизнь за 150 000, или же пройти юридическую реабилитацию, обратившись к сотрудникам правительства.","Судимости можно снять на черном рынке, начав новую жизнь за 150 000, или же пройти юридическую реабилитацию, обратившись к сотрудникам правительства."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 700
+          setEnglish()
+        }
+      Return
+      reps_wait:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Ожидайте.","Ожидайте."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_minikarta:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Если у вас пропала миникарта, отключите фикс миникарты для мониторов 21:9 в F10-Шестеренка-Интерфейс, после чего полностью перезайдите в игру.","Если у вас нет миникарты, отключите фикс миникарты для мониторов 21:9 в F10-Шестеренка-Интерфейс, после чего полностью перезайдите в игру."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 700
+          setEnglish()
+        }
+      Return
+      reps_gde_kupit:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Купить металоискатель можно в Secret Shop'е. Лопату в рыболовном магазине.","Купить металоискатель можно в Secret Shop'е. Лопату в рыболовном магазине."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_kvest:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Задания и экзамены будут доступны до 07:00 МСК 16 октября. Купить призы у директора можно будет до 07:00 МСК 30 октября.","Задания и экзамены будут доступны до 07:00 МСК 16 октября. Купить призы у директора можно будет до 07:00 МСК 30 октября."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_alohelp:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+          setRussian()
+          SendInput, Опишите ситуацию в репорт, чтобы мы могли помочь Вам качественнее.
+          sleep 500
+          setEnglish()
+      Return
+      reps_preduprezden:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Игрок предупрежден.","Игрок предупрежден."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_peredam:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Передам.","Передам."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_kd_tir:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["КД на тренировку в обычном тире - 90 минут, в армейском - 60.","КД на тренировку в обычном тире - 90 минут, в армейском - 60."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_soznanie:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Потеряйте сознание.","Потеряйте сознание."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_evakuator:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Эвакуируйте авто.","Эвакуируйте авто."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_strelka_vniz:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Стрелочка вниз.","Стрелочка вниз."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_vremya_ft:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["М-Личное дело.","М-Личное дело."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return
+      reps_bayvito:
+        WinActivate, "ahk_exe ragemp_v.exe"
+        MouseClick, left, -689, 315
+      
+        links := ["Покупки на 5vito нужно забирать с почты.","Покупки на 5vito нужно забирать с почты."]
+        {
+          Random,var , 1,2
+          sleep 100
+          setRussian()
+          SendInput, % links[var]
+          sleep 500
+          setEnglish()
+        }
+      Return

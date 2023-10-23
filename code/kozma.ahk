@@ -1,4 +1,4 @@
-﻿; greps_spam Нарушает в репорт
+; greps_spam Нарушает в репорт
 ; greps_gps Поставлю метку
 ; greps_yes Да
 ; greps_no Нет
